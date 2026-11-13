@@ -4,13 +4,13 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 
-export type Kind = "guest" | "member";
+export type Kind = "guest" | "member" | "recommend";
 type Field = { name: string; label: string; type?: "text" | "number" | "area" };
 
 const config: Record<Kind, { eyebrow: string; title: string; fields: Field[] }> = {
   guest: {
-    eyebrow: "For the builders",
-    title: "Apply to be a Guest",
+    eyebrow: "For our guests",
+    title: "Join us as a guest",
     fields: [
       { name: "name", label: "Your name" },
       { name: "contact", label: "Email or WhatsApp" },
@@ -19,15 +19,25 @@ const config: Record<Kind, { eyebrow: string; title: string; fields: Field[] }> 
     ],
   },
   member: {
-    eyebrow: "For the next builders",
-    title: "Request an Invite",
+    eyebrow: "For young changemakers",
+    title: "Request an Invitation",
     fields: [
       { name: "name", label: "Your name" },
       { name: "age", label: "Age", type: "number" },
-      { name: "lga", label: "LGA in Oke-Ogun" },
+      { name: "lga", label: "LGA in Oke Ogun" },
       { name: "contact", label: "Email or WhatsApp" },
-      { name: "build", label: "What are you building?", type: "area" },
-      { name: "why", label: "Why do you want to join?", type: "area" },
+      { name: "build", label: "What are you working on?", type: "area" },
+      { name: "why", label: "What do you hope to learn?", type: "area" },
+    ],
+  },
+  recommend: {
+    eyebrow: "Know someone?",
+    title: "Recommend someone",
+    fields: [
+      { name: "name", label: "Your name" },
+      { name: "contact", label: "Your email or WhatsApp" },
+      { name: "build", label: "Who should be in the room, and what are they working on?", type: "area" },
+      { name: "why", label: "Why should they be there?", type: "area" },
     ],
   },
 };

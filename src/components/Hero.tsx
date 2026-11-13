@@ -2,6 +2,8 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import Magnetic from "./Magnetic";
+import { openForm } from "@/lib/form";
 
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -10,10 +12,8 @@ export default function Hero() {
   const back = useTransform(scrollYProgress, [0, 1], [0, 50]);
   const mid = useTransform(scrollYProgress, [0, 1], [0, 120]);
   const front = useTransform(scrollYProgress, [0, 1], [0, 200]);
-  const tagO = useTransform(scrollYProgress, [0.08, 0.24], [0, 1]);
-  const tagY = useTransform(scrollYProgress, [0.08, 0.24], [24, 0]);
-  const manO = useTransform(scrollYProgress, [0.22, 0.4], [0, 1]);
-  const manY = useTransform(scrollYProgress, [0.22, 0.4], [24, 0]);
+  const contentO = useTransform(scrollYProgress, [0.15, 0.5], [1, 0]);
+  const contentY = useTransform(scrollYProgress, [0, 0.5], [0, -60]);
   const cueO = useTransform(scrollYProgress, [0, 0.08], [1, 0]);
 
   const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -39,27 +39,34 @@ export default function Hero() {
           </motion.svg>
         </div>
 
-        <div className="relative z-10 px-6">
-          <h1 className="font-serif text-[clamp(3.4rem,13vw,12.5rem)] leading-[0.9] tracking-tight">
-            <span className="block overflow-hidden pb-[0.08em]">
+        <motion.div style={{ opacity: contentO, y: contentY }} className="relative z-10 px-6 pt-16">
+          <h1 className="mx-auto max-w-5xl font-serif text-[clamp(2.4rem,5.6vw,5.25rem)] leading-[1.02] tracking-tight">
+            <span className="block overflow-hidden pb-[0.1em]">
               <motion.span className="block" initial={{ y: "110%" }} animate={{ y: "0%" }} transition={{ duration: 1.5, delay: 0.3, ease }}>
-                THE COMMONS
+                Learn from people who
               </motion.span>
             </span>
-            <span className="block overflow-hidden pb-[0.08em]">
-              <motion.span className="block italic text-clay" initial={{ y: "110%" }} animate={{ y: "0%" }} transition={{ duration: 1.5, delay: 0.55, ease }}>
-                OKE-OGUN
+            <span className="block overflow-hidden pb-[0.1em]">
+              <motion.span className="block" initial={{ y: "110%" }} animate={{ y: "0%" }} transition={{ duration: 1.5, delay: 0.55, ease }}>
+                have made a <em className="text-clay">difference</em> here.
               </motion.span>
             </span>
           </h1>
 
-          <motion.p style={{ opacity: tagO, y: tagY }} className="mt-8 font-serif text-xl text-sand/90 md:text-3xl">
-            A shared space for community and enterprise.
+          <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.0, duration: 1, ease }} className="mx-auto mt-8 max-w-xl text-base leading-relaxed text-sand/85 md:text-lg">
+            Every two months, young changemakers sit with people whose leadership and service have shaped communities across Oke Ogun.
           </motion.p>
-          <motion.p style={{ opacity: manO, y: manY }} className="mx-auto mt-6 max-w-md text-sm leading-relaxed text-sand/70">
-            An invite-only gathering where Oke-Ogun’s young builders sit with those who built before them.
+          <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.25, duration: 1, ease }} className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-sand/70 md:text-lg">
+            Come to listen, ask questions and learn what it takes to make a difference.
           </motion.p>
-        </div>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.6, duration: 1 }} className="mt-10">
+            <Magnetic>
+              <button onClick={() => openForm("member")} className="rounded-full bg-clay px-8 py-4 text-sm font-medium text-sand transition hover:brightness-110">
+                Request an Invitation
+              </button>
+            </Magnetic>
+          </motion.div>
+        </motion.div>
 
         <motion.div style={{ opacity: cueO }} className="eyebrow absolute bottom-8 z-10 text-sand/70">
           ( scroll )

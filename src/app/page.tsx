@@ -1,15 +1,19 @@
 import SmoothScroll from "@/components/SmoothScroll";
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import WhoWeAre from "@/components/WhoWeAre";
-import Mission from "@/components/Mission";
-import TwoPaths from "@/components/TwoPaths";
-import HowItWorks from "@/components/HowItWorks";
+import Why from "@/components/Why";
+import Gathering from "@/components/Gathering";
+import Belief from "@/components/Belief";
+import Invitations from "@/components/Invitations";
+import NextUp from "@/components/NextUp";
 import Gallery from "@/components/Gallery";
-import Manifesto from "@/components/Manifesto";
-import Extras from "@/components/Extras";
-import Faq from "@/components/Faq";
-import Footer from "@/components/Footer";
+import Questions from "@/components/Questions";
+import ClosingCta from "@/components/ClosingCta";
+import ModalHost from "@/components/ModalHost";
+import SiteFooter from "@/components/SiteFooter";
+
+// Flip to true after the first gathering, once real photos are in Gallery.tsx
+const SHOW_GALLERY = false;
 
 export default function Home() {
   return (
@@ -18,16 +22,17 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
-        <WhoWeAre />
-        <Mission />
-        <TwoPaths />
-        <HowItWorks />
-        <Gallery />
-        <Manifesto />
-        <Extras />
-        <Faq />
+        <Why />
+        <Gathering />
+        <Belief />
+        <Invitations />
+        <NextUp />
+        {SHOW_GALLERY && <Gallery />}
+        <Questions />
+        <ClosingCta />
       </main>
-      <Footer />
+      <SiteFooter />
+      <ModalHost />
     </SmoothScroll>
   );
 }

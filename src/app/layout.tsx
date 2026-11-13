@@ -10,12 +10,12 @@ const instrument = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "The Commons Oke-Ogun",
+  title: "The Commons",
   description:
-    "An invite-only gathering where Oke-Ogun’s young builders sit with those who built before them.",
+    "Every two months, young changemakers sit with people whose leadership and service have shaped communities across Oke Ogun.",
   openGraph: {
-    title: "The Commons Oke-Ogun",
-    description: "A shared space for community and enterprise.",
+    title: "The Commons",
+    description: "Learn from people who have made a difference here.",
     type: "website",
   },
 };

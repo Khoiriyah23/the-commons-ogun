@@ -5,10 +5,11 @@ import Image from "next/image";
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
 
 const links = [
-  { href: "#who", label: "About" },
-  { href: "#mission", label: "Mission" },
-  { href: "#gallery", label: "Moments" },
-  { href: "#faq", label: "FAQ" },
+  { href: "#why", label: "Why" },
+  { href: "#gathering", label: "Gathering" },
+  { href: "#invitations", label: "Invitations" },
+  { href: "#next", label: "Next" },
+  { href: "#questions", label: "Questions" },
 ];
 
 export default function Nav() {
@@ -45,12 +46,12 @@ export default function Nav() {
             <span className="font-serif text-lg tracking-[0.14em] md:text-xl">THE COMMONS</span>
           </a>
 
-          <nav className="eyebrow hidden items-center gap-10 text-sand/80 md:flex">
+          <nav className="eyebrow hidden items-center gap-8 text-sand/80 lg:flex">
             {links.map((l) => (
               <a key={l.href} href={l.href} className="transition hover:text-clay">{l.label}</a>
             ))}
-            <a href="#paths" className="rounded-full border border-clay px-5 py-2.5 text-clay transition hover:bg-clay hover:text-sand">
-              Request an Invite
+            <a href="#invitations" className="rounded-full border border-clay px-5 py-2.5 text-clay transition hover:bg-clay hover:text-sand">
+              Request an Invitation
             </a>
           </nav>
 
@@ -58,7 +59,7 @@ export default function Nav() {
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen(!open)}
-            className="relative size-10 md:hidden"
+            className="relative size-10 lg:hidden"
           >
             <span className={`absolute left-2 right-2 h-px bg-sand transition-all duration-300 ${open ? "top-1/2 rotate-45" : "top-[14px]"}`} />
             <span className={`absolute left-2 right-2 h-px bg-sand transition-all duration-300 ${open ? "top-1/2 -rotate-45" : "top-[26px]"}`} />
@@ -74,7 +75,7 @@ export default function Nav() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
-            className="fixed inset-0 z-40 flex flex-col justify-center bg-earth px-8 md:hidden"
+            className="fixed inset-0 z-40 flex flex-col justify-center bg-earth px-8 lg:hidden"
           >
             <nav className="flex flex-col gap-6">
               {links.map((l, i) => (
@@ -91,11 +92,11 @@ export default function Nav() {
                 </motion.a>
               ))}
               <a
-                href="#paths"
+                href="#invitations"
                 onClick={() => setOpen(false)}
                 className="mt-6 self-start rounded-full bg-clay px-7 py-4 text-sm font-medium"
               >
-                Request an Invite →
+                Request an Invitation →
               </a>
             </nav>
           </motion.div>

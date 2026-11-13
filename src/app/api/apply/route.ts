@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { getSupabase } from "@/lib/supabase";
 
-const TYPES = ["guest", "member", "newsletter"];
+const TYPES = ["guest", "member", "newsletter", "recommend"];
 
 export async function POST(req: Request) {
   try {
